@@ -145,9 +145,6 @@ results_parallel_tall_ant1H <- results_parallel_tall_ant1int[Habitatadjust < 0.0
 results_parallel_tall_ant1E <- results_parallel_tall_ant1int[Conditionadjust < 0.05 & Casteadjust > 0.05 & Habitatadjust > 0.05]
 
 
-Here's a cleaner, more coherent version of your code that produces a single PCA plot:
-
-```r
 library(FactoMineR)
 library(ggplot2)
 library(dplyr)
@@ -156,8 +153,8 @@ library(HTSFilter)
 library(car)
 
 # Load data
-x <- read.delim("C:/Users/nmasm/Downloads/matrice_counts.txt", row.names = "Geneid")
-ant_samples <- fread("C:/Users/nmasm/Downloads/ant_metadata.txt")
+x <- read.delim("matrice_counts.txt", row.names = "Geneid")
+ant_samples <- fread("ant_metadata.txt")
 
 # Rename columns
 colnames(x) <- c("QFT1", "QFT2", "QFT3", "QFT4", "QVT1", "QVT2", "QVT3", "QVT4",
@@ -216,7 +213,7 @@ library(GO.db)
 
 CC <- fread("GO_cond_cas.txt")
 #there was an extra blank 3rd column i had to remove manually first
-anno <- fread("C:/Users/nmasm/Downloads/annotation_complete.csv", header = TRUE)
+anno <- fread("annotation_complete.csv", header = TRUE)
 # all annotated genes have ".<number>.p1", but DE genes do not --> remove it?
 anno$gene <- gsub(".[0-9].p1","",anno$gene)
 
