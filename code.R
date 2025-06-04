@@ -69,7 +69,7 @@ ant_tall$Count <- round(ant_tall$Count, digits=0)
 head(ant_tall)
 
 ##### merge together
-ant_samples = fread('C:/Users/nmasm/Downloads/ant_metadata.txt')
+ant_samples = fread('ant_metadata.txt')
 tall_ant = merge(ant_tall, ant_samples, by = "Replicate")
 tall_ant <- as.data.table(tall_ant)
 
